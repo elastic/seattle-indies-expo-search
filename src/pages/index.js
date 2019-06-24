@@ -67,6 +67,10 @@ const configurationOptions = {
       players: { type: 'value', size: 25 },
       studio: { type: 'value', size: 100 },
     },
+    disjunctiveFacets: ['year', 'platforms', 'studio'],
+  },
+  initialState: {
+    resultsPerPage: 25,
   },
 };
 
@@ -113,7 +117,7 @@ export default function App() {
           bodyHeader={
             <>
               <PagingInfo />
-              <ResultsPerPage />
+              <ResultsPerPage options={[10, 25, 50]} />
             </>
           }
           bodyFooter={<Paging />}
