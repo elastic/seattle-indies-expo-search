@@ -71,6 +71,13 @@ const configurationOptions = {
   },
   initialState: {
     resultsPerPage: 25,
+    filters: [
+      {
+        field: 'year',
+        values: [2018], // Show the latest year's games first
+        type: 'any',
+      },
+    ],
   },
 };
 
