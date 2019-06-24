@@ -99,14 +99,24 @@ export default function App() {
                     direction: '',
                   },
                   {
-                    name: 'Title',
+                    name: 'Title (A-Z)',
                     value: 'title',
                     direction: 'asc',
                   },
                   {
-                    name: 'Year',
+                    name: 'Title (Z-A)',
+                    value: 'title',
+                    direction: 'desc',
+                  },
+                  {
+                    name: 'Year (oldest)',
                     value: 'year',
                     direction: 'asc',
+                  },
+                  {
+                    name: 'Year (newest)',
+                    value: 'year',
+                    direction: 'desc',
                   },
                 ]}
               />
