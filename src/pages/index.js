@@ -35,20 +35,9 @@ const configurationOptions = {
       studio: {},
     },
     result_fields: {
-      title: {
-        // A snippet means that matching search terms will be highlighted via <em> tags.
-        snippet: {
-          size: 75, // Limit the snippet to 75 characters
-          fallback: true, // Fallback to a "raw" result
-        },
-      },
+      title: { raw: {} },
       studio: { raw: {} },
-      description: {
-        snippet: {
-          size: 1000,
-          fallback: true,
-        },
-      },
+      description: { raw: {} },
       platforms: { raw: {} },
       players: { raw: {} },
       website: { raw: {} },
@@ -57,7 +46,7 @@ const configurationOptions = {
       screenshots: { raw: {} },
       year: { raw: {} },
     },
-    // 3. Facet by scores, genre, publisher, and platform, which we'll use to build filters later.
+    // 3. Facet by scores, genre, publisher, and platform (used by Filters)
     facets: {
       year: { type: 'value', size: 5 },
       platforms: { type: 'value', size: 100 },
@@ -71,7 +60,7 @@ const configurationOptions = {
     filters: [
       {
         field: 'year',
-        values: [2018], // Show the latest year's games first
+        values: [2018], // Show the most recent year's games first
         type: 'any',
       },
     ],
