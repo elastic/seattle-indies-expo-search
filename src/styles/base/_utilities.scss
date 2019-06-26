@@ -1,0 +1,75 @@
+/**
+ * This section has been kept fairly minimal to helpers I've used repeatedly in
+ * the past and can be expanded, maybe taking a leaf from some of SUIT CSS's.
+ * @see https://github.com/suitcss/utils
+ *
+ * Before simply adding a plethora of utility classes, read this writeup on the
+ * advantages and pitfalls of doing so. The goal is to keep this base unbloated
+ * and useful to a wide variety of sites.
+ * @see http://davidtheclark.com/on-utility-classes/
+ */
+
+// Hiding
+.u-removed {
+  display: none;
+}
+.u-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.u-screenreader-only {
+  position: absolute !important;
+  clip: rect(0 0 0 0) !important;
+}
+
+// Layout & Positioning
+.u-clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+.u-float-left {
+  float: left;
+}
+.u-float-right {
+  float: right;
+}
+.u-float-none {
+  float: none;
+}
+.u-sticky {
+  position: fixed;
+}
+
+// Text alignment
+.u-align-center {
+  text-align: center;
+}
+.u-align-left {
+  text-align: left;
+}
+.u-align-right {
+  text-align: right;
+}
+
+// Typography helpers
+.u-word-truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.u-word-hyphenate {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+.u-word-break {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}

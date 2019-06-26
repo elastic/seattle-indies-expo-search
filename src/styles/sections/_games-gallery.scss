@@ -1,0 +1,117 @@
+/**
+ * Game grid
+ */
+
+$game-grid-gap: 0.5em;
+$game-grid-min: 10em;
+$game-grid-cols: 5;
+$color-game-overlay: darken($color-dark, 20%);
+
+.line-up {
+  display: grid;
+  grid-gap: $game-grid-gap;
+  grid-template-columns: repeat(auto-fill, minmax($game-grid-min, 1fr));
+
+  @media (min-width: $mq-medium) {
+    grid-template-columns: repeat($game-grid-cols, minmax($game-grid-min, 1fr));
+  }
+  @media (min-width: $mq-xlarge) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.game {
+  position: relative;
+  box-shadow: 0 0 1em darken($color-dark, 10%);
+
+  // Jurying app
+  &--disabled {
+    opacity: 0.5;
+    filter: grayscale(100%);
+  }
+
+  &__overlay {
+    z-index: 2;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: ($game-grid-gap * 3) ($game-grid-gap / 2) ($game-grid-gap / 2);
+    text-align: center;
+    color: $color-light;
+    background: linear-gradient(
+      rgba($color-game-overlay, 0) 0%,
+      rgba($color-game-overlay, 0.8) 60%,
+      rgba($color-game-overlay, 1) 100%
+    );
+    overflow: hidden;
+  }
+
+  &__animated {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+
+  &__title {
+    margin: 0 auto;
+    font-size: 1.4em;
+    line-height: 1;
+  }
+
+  &__studio {
+    margin: 0.3em auto 0;
+    font-size: 0.9em;
+    font-weight: 100;
+    line-height: 1.2;
+
+    @media (min-width: $mq-small) {
+      font-size: 0.8em;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Non-touch screen (has mouse/can hover) devices
+.game {
+  @media (hover: hover), (min-width: $mq-medium) {
+    .game__overlay {
+      top: 0;
+      padding: ($game-grid-gap / 2);
+      background: rgba($color-game-overlay, 0.75);
+      opacity: 0;
+      transition: 0.3s opacity ease-out;
+      will-change: opacity;
+    }
+
+    .game__reviews {
+      position: absolute;
+      bottom: 0.5rem;
+    }
+
+    &:hover,
+    &:focus {
+      .game__overlay {
+        opacity: 1;
+      }
+      .game__animated {
+        visibility: visible;
+      }
+    }
+  }
+}

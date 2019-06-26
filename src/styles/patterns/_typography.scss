@@ -1,0 +1,159 @@
+/**
+ * Typography
+ */
+
+body {
+  font-display: fallback;
+  font-family: $font-sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+  color: $color-light;
+  background-color: $color-dark;
+
+  @media (min-width: $mq-xsmall) {
+    font-size: calc(1em + .3125 * (100vw - #{$mq-xsmall}) / 50);
+  }
+  @media (min-width: $mq-xlarge) {
+    font-size: 1.5em;
+  }
+}
+
+/**
+ * Links
+ */
+
+a {
+  color: currentColor;
+}
+svg {
+  fill: currentColor;
+}
+
+a.underlined,
+button.underlined {
+  position: relative;
+  display: inline-block;
+
+  &::after,
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: $border-width-thin;
+    content: '';
+  }
+
+  &::before {
+    z-index: 0;
+    background-color: $color-light;
+  }
+
+  &::after {
+    z-index: 1;
+    background-color: $color-primary;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s $ease-in-out-quint;
+    will-change: transform;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/**
+ * Styling for text-heavy sections
+ */
+
+.text-heavy {
+  // Links
+  a {
+    @extend a.underlined;
+  }
+
+  .button {
+    &::before {
+      content: none;
+    }
+    &::after {
+      right: 0;
+      left: 0;
+      background-color: $color-light;
+    }
+  }
+
+  // Text
+  p {
+    line-height: 1.5;
+  }
+
+  h2 {
+    @media (min-width: $mq-xsmall) {
+      margin: 1rem auto;
+      font-size: 2em;
+      line-height: 1.2;
+    }
+  }
+  h3 {
+    @media (min-width: $mq-xsmall) {
+      margin: 1rem auto;
+      font-size: 1.5em;
+    }
+  }
+
+  // Lists
+  li {
+    position: relative;
+    margin: .5em auto;
+  }
+
+  ol {
+    list-style-type: none;
+    counter-reset: ol-counter;
+
+    & > li::before {
+      position: absolute;
+      right: 100%;
+      min-width: 1.2em;
+      margin-right: .2em;
+      font-size: .9em;
+      font-weight: 500;
+      line-height: 1.7;
+      content: counter(ol-counter) ".";
+      counter-increment: ol-counter;
+      color: $color-primary;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+
+    & > li::before {
+      position: absolute;
+      right: 100%;
+      width: .33em;
+      height: .33em;
+      margin: .6em .5em 0 0;
+      content: "";
+      background-color: $color-primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+/**
+ * Colors
+ */
+
+.error-message {
+  color: $color-error;
+}
+
+.success-message {
+  color: $color-success;
+}

@@ -16,6 +16,8 @@
     "@elastic/react-search-ui": "^0.10.0",
     "@elastic/search-ui-app-search-connector": "^0.10.0",
     "gatsby": "^2.10.0",
+    "gatsby-plugin-sass": "^2.1.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

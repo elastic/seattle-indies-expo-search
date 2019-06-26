@@ -1,0 +1,27 @@
+/**
+ * Footer
+ */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  font-size: 0.9em;
+  line-height: 1.5em;
+
+  &__section {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: $mq-xsmall) {
+    font-size: 0.8em;
+    flex-wrap: nowrap;
+
+    &__section:last-child {
+      text-align: right;
+    }
+  }
+}

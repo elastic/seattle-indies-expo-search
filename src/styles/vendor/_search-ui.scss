@@ -1,0 +1,318 @@
+/**
+ * General layout
+ * + account for header overlap
+ */
+
+.sui-layout {
+  z-index: 3;
+  position: relative;
+  margin-top: -3em;
+}
+
+.sui-layout-body__inner {
+  display: flex;
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sui-layout-sidebar {
+  flex: 0 0 12em;
+  margin-right: 2em;
+
+  font-size: 0.95em;
+}
+
+.sui-layout-main {
+  flex: 1 1 auto;
+}
+
+/**
+ * Search & autocomplete
+ */
+
+.sui-search-box {
+  display: flex;
+  align-items: stretch;
+  line-height: 1;
+  font-size: 0.9em;
+}
+.sui-search-box__wrapper {
+  flex: 1 1 auto;
+}
+.sui-search-box__text-input {
+  height: 100%;
+}
+.sui-search-box__submit.button {
+  flex: 0 1 3em;
+  padding: 0.5em 0.8em;
+  line-height: 1;
+  outline: none;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s ease-out;
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.sui-search-box.autocomplete {
+  position: relative;
+}
+.sui-search-box__autocomplete-container {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  color: $color-dark;
+  background-color: $color-light;
+  border: $border-width solid $color-primary;
+  border-top-width: 0;
+
+  ul {
+    margin: 0 auto;
+    padding: 0.4em 0.8em 0.5em;
+    list-style: none;
+  }
+  li {
+    padding: 0.4em 0;
+    font-style: italic;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-primary;
+    }
+  }
+}
+
+/**
+ * Filters
+ */
+
+.sui-facet {
+  margin: 1em auto;
+}
+
+.sui-multi-checkbox-facet__label {
+  margin-bottom: 0.3em;
+
+  font-weight: 500;
+  line-height: 1.2;
+  color: $color-primary;
+  text-transform: uppercase;
+}
+.sui-multi-checkbox-facet__option-label {
+  display: flex;
+  align-items: center;
+  margin: 0.4em auto;
+  line-height: 1.1;
+  font-weight: 300;
+  cursor: pointer;
+}
+.sui-multi-checkbox-facet__option-input-wrapper {
+  flex: 1 1 auto;
+  margin-right: 0.5em;
+}
+.sui-multi-checkbox-facet__checkbox {
+  margin-right: 0.5em;
+}
+.sui-multi-checkbox-facet__option-count {
+  flex: 0 0 auto;
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+.sui-facet-search__text-input {
+  font-size: 0.8em;
+  margin: 0.9em 0;
+}
+
+.sui-multi-checkbox-facet__view-more {
+  font-size: 0.9em;
+  color: $color-primary;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/**
+ * Sorting & showing
+ */
+
+.sui-layout-main-header__inner {
+  display: flex;
+  align-items: center;
+  min-height: 2.5em;
+  margin-bottom: 1em;
+}
+.sui-paging-info {
+  flex-grow: 1;
+  margin-right: 1em;
+}
+
+.sui-results-per-page {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5em;
+
+  .sui-select {
+    min-width: 3.5em;
+  }
+}
+.sui-sorting {
+  display: flex;
+  align-items: center;
+
+  .sui-select {
+    min-width: 8.5em;
+  }
+}
+
+.sui-results-per-page__label,
+.sui-sorting__label {
+  margin-right: 0.5em;
+}
+
+/**
+ * Overriding react-select inline styles
+ * TODO: This was kind of a pain to do with just CSS
+ */
+
+.sui-select__control {
+  display: flex;
+  align-items: center;
+  padding: 0.25em 0;
+
+  color: $color-light;
+  background-color: $color-dark;
+  border: $border-width-thin solid $color-light;
+  transition: border-color 0.2s ease-out;
+
+  &:hover,
+  &--is-focused {
+    border-color: $color-primary;
+    cursor: pointer;
+  }
+}
+.sui-select__indicators {
+  line-height: 0;
+  padding-right: 0.25em;
+}
+
+.sui-select__single-value {
+  color: $color-light !important;
+}
+.sui-select__menu {
+  margin-top: 0 !important;
+  padding: 0 0.5em;
+  color: $color-light;
+  background-color: $color-dark !important;
+  border: $border-width-thin solid $color-primary;
+  border-top-width: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.sui-select__option {
+  padding: 0.1em 0;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--is-selected {
+    font-weight: 700;
+    color: $color-primary;
+  }
+}
+
+// Fix z-index issue with select dropdowns in header not overlapping game overlays
+.sui-layout-main-header {
+  position: relative;
+  z-index: 3;
+}
+
+/**
+ * Pagination
+ */
+
+.sui-layout-main-footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.sui-paging {
+  margin: 2em auto 1em;
+  padding-left: 0;
+  list-style: none;
+
+  @media (min-width: $mq-small) {
+    font-size: 1.1em;
+  }
+
+  li {
+    display: inline-block;
+    min-width: 2em;
+    height: 2em;
+    line-height: 1.8em;
+    margin: 0 0.2em;
+    cursor: pointer;
+    border: $border-width-thin solid transparent;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .rc-pagination-prev,
+  .rc-pagination-next {
+    border-color: $color-light;
+    transition: border-color 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+      border-color: $color-primary;
+      text-decoration: none;
+    }
+  }
+  .rc-pagination-prev::after {
+    content: '«';
+  }
+  .rc-pagination-next::after {
+    content: '»';
+  }
+
+  .rc-pagination-jump-prev,
+  .rc-pagination-jump-next {
+    &::after {
+      content: '…';
+      opacity: 0.5;
+    }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  .rc-pagination-item-active {
+    font-weight: 700;
+    color: $color-primary;
+    pointer-events: none;
+  }
+  .rc-pagination-disabled {
+    opacity: 0.3;
+    border-color: transparent;
+    pointer-events: none;
+  }
+}

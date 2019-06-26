@@ -1,18 +1,15 @@
 import React from 'react';
+
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector';
-import {
-  SearchProvider,
-  SearchBox,
-  Results,
-  Sorting,
-  Facet,
-  Paging,
-  PagingInfo,
-  ResultsPerPage,
-} from '@elastic/react-search-ui';
+import { SearchProvider, Results, Paging } from '@elastic/react-search-ui';
 import { Layout } from '@elastic/react-search-ui-views';
 
-import '@elastic/react-search-ui-views/lib/styles/styles.css';
+import Header from '../components/Header';
+import { Games, Game } from '../components/Games';
+import { Filtering, Showing } from '../components/Searching';
+import Footer from '../components/Footer';
+
+import '../styles/style.scss';
 
 const connector = new AppSearchAPIConnector({
   searchKey: 'search-iwy7kncizytudu9oc27tky7e',
@@ -84,62 +81,14 @@ const configurationOptions = {
 export default function App() {
   return (
     <SearchProvider config={configurationOptions}>
-      <div className="App">
-        <Layout
-          header={<SearchBox autocompleteSuggestions={true} />}
-          bodyContent={<Results titleField="title" urlField="website" />}
-          sideContent={
-            <div>
-              <Sorting
-                label={'Sort by'}
-                sortOptions={[
-                  {
-                    name: 'Relevance',
-                    value: '',
-                    direction: '',
-                  },
-                  {
-                    name: 'Title (A-Z)',
-                    value: 'title',
-                    direction: 'asc',
-                  },
-                  {
-                    name: 'Title (Z-A)',
-                    value: 'title',
-                    direction: 'desc',
-                  },
-                  {
-                    name: 'Year (oldest)',
-                    value: 'year',
-                    direction: 'asc',
-                  },
-                  {
-                    name: 'Year (newest)',
-                    value: 'year',
-                    direction: 'desc',
-                  },
-                ]}
-              />
-              <Facet field="year" label="Year" filterType="any" />
-              <Facet field="platforms" label="Platform" filterType="any" />
-              <Facet field="players" label="Players" />
-              <Facet
-                field="studio"
-                label="Game Studio"
-                isFilterable={true}
-                filterType="any"
-              />
-            </div>
-          }
-          bodyHeader={
-            <>
-              <PagingInfo />
-              <ResultsPerPage options={[10, 25, 50]} />
-            </>
-          }
-          bodyFooter={<Paging />}
-        />
-      </div>
+      <Header />
+      <Layout
+        bodyContent={<Results view={Games} renderResult={Game} />}
+        sideContent={<Filtering />}
+        bodyHeader={<Showing />}
+        bodyFooter={<Paging />}
+      />
+      <Footer />
     </SearchProvider>
   );
 }

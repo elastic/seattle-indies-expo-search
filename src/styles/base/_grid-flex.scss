@@ -1,0 +1,144 @@
+/**
+ * Flexbox grid & other various layout helpers
+ * See bottom of file for various example usages
+ */
+$flex-gutter: 1%;
+
+/**
+ * Container & optional container modifiers
+ */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.flex--no-wrap {
+  flex-wrap: nowrap;
+}
+.flex--no-gutter {
+  margin-right: -($flex-gutter);
+  margin-left: -($flex-gutter);
+}
+
+/**
+ * Horizontal alignment of children
+ */
+.flex--stretch {
+  justify-content: space-between;
+}
+.flex--space-out {
+  justify-content: space-around;
+}
+.flex--center {
+  justify-content: center;
+}
+.flex--right {
+  justify-content: flex-end;
+}
+.flex--left {
+  justify-content: flex-start; // Default
+}
+
+/**
+ * Vertical alignment of children
+ */
+.flex--top {
+  align-items: flex-start;
+}
+.flex--bottom {
+  align-items: flex-end;
+}
+.flex--middle {
+  align-items: center;
+}
+
+/**
+ * Individual children & modifiers
+ */
+
+/**
+ * Width is based on the content, like inline-block
+ */
+.flex-item {
+  flex: 1 1 auto;
+  max-width: 100%;
+  margin-right: $flex-gutter;
+  margin-left: $flex-gutter
+}
+
+/**
+ * A standard grid system, for percentage-based widths
+ */
+.flex-item--1-1,
+.flex-item--1-2,
+.flex-item--1-3, .flex-item--2-3,
+.flex-item--1-4, .flex-item--3-4,
+.flex-item--1-5, .flex-item--2-5, .flex-item--3-5, .flex-item--4-5 {
+  flex: 0 0 (100% - ($flex-gutter * 2));
+  margin: $flex-gutter;
+}
+
+// Expand out to half-cols
+@media (min-width: $mq-xsmall) {
+  .flex-item--1-2,
+  .flex-item--1-3, .flex-item--2-3,
+  .flex-item--1-4, .flex-item--3-4,
+  .flex-item--1-5, .flex-item--2-5, .flex-item--3-5, .flex-item--4-5 {
+    flex: 0 0 (50% - ($flex-gutter * 2));
+  }
+}
+
+// Expand out to their %s
+@media (min-width: $mq-small) {
+  .flex-item--1-5 {
+    flex: 0 0 (20% - ($flex-gutter * 2));
+  }
+  .flex-item--1-4 {
+    flex: 0 0 (25% - ($flex-gutter * 2));
+  }
+  .flex-item--1-3 {
+    flex: 0 0 (33.333333% - ($flex-gutter * 2));
+  }
+  .flex-item--2-5 {
+    flex: 0 0 (40% - ($flex-gutter * 2));
+  }
+  .flex-item--3-5 {
+    flex: 0 0 (60% - ($flex-gutter * 2));
+  }
+  .flex-item--2-3 {
+    flex: 0 0 (66.666666% - ($flex-gutter * 2));
+  }
+  .flex-item--3-4 {
+    flex: 0 0 (75% - ($flex-gutter * 2));
+  }
+  .flex-item--4-5 {
+    flex: 0 0 (80% - ($flex-gutter * 2));
+  }
+}
+
+/**
+ * Helper classes for vertically aligning cells
+ * (Overrides parent alignment)
+ */
+.flex-item--top {
+  align-self: flex-start;
+}
+.flex-item--bottom {
+  align-self: flex-end;
+}
+.flex-item--middle {
+  align-self: center;
+}
+
+/**
+ * Other helper classes
+ */
+.flex-item--grow {
+  flex-grow: 1;
+}
+.flex-item--shrink {
+  flex-shrink: 1;
+}
+.flex-item--no-gutter {
+  margin: 0;
+}

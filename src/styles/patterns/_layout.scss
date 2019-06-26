@@ -1,0 +1,19 @@
+/**
+ * Layout
+ */
+
+.container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $mq-small) {
+    &--wide {
+      width: 95%;
+    }
+
+    &--small {
+      width: 80%;
+    }
+  }
+}

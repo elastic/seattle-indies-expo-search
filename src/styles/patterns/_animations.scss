@@ -1,0 +1,124 @@
+/**
+ * Animations & Animation helper classes
+ *
+ * Credit to Typanus/Codrops for the awesome revealer inspiration
+ * @see https://tympanus.net/Development/BlockRevealers/index.html
+ */
+
+/**
+ * Easing helpers
+ */
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+/**
+ * Fade In
+ */
+.ani-fadein {
+  animation: fadeIn 0.5s ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/**
+ * Block Reveal
+ * Inspiration credited to: https://tympanus.net/Development/BlockRevealers/index.html
+ */
+.ani-reveal {
+  position: relative;
+  animation: revealText 1s $ease-in-out-quint;
+  animation-fill-mode: both;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    animation: coverUncover 1s $ease-in-out-quint;
+    animation-fill-mode: both;
+    background-color: $color-primary;
+  }
+
+  &--left::after {
+    animation: coverUncoverLeft 1s $ease-in-out-quint;
+    animation-fill-mode: forwards;
+  }
+
+  &--lighter::after {
+    background-color: saturate(lighten($color-primary, 5%), 15%);
+  }
+  &--lightest::after {
+    background-color: saturate(lighten($color-primary, 10%), 20%);
+  }
+  &--darker::after {
+    background-color: desaturate(darken($color-primary, 5%), 10%);
+  }
+  &--darkest::after {
+    background-color: desaturate(darken($color-primary, 10%), 15%);
+  }
+  &--complement::after {
+    background-color: complement($color-primary);
+  }
+}
+
+@keyframes revealText {
+  0% {
+    visibility: hidden;
+  }
+  49% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes coverUncover {
+  0% {
+    visibility: visible;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  49% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+@keyframes coverUncoverLeft {
+  0% {
+    visibility: visible;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  49% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
