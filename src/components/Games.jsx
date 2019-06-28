@@ -122,7 +122,7 @@ const GameModal = ({ game }) => {
           )}
         </ul>
 
-        {game.description.raw}
+        <div dangerouslySetInnerHTML={{ __html: game.description.raw }}></div>
 
         <a
           className="game-modal__cta button button--important"
