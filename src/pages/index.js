@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import { Games, Game } from '../components/Games';
 import { Filtering, Showing } from '../components/Searching';
 import Footer from '../components/Footer';
+import { ModalProvider } from '../components/Modal';
 
 import '../styles/style.scss';
 
@@ -44,7 +45,9 @@ const configurationOptions = {
       logo: { raw: {} },
       logo_animated: { raw: {} },
       screenshots: { raw: {} },
+      video: { raw: {} },
       year: { raw: {} },
+      modal: { raw: {} },
     },
     // 3. Facet by scores, genre, publisher, and platform (used by Filters)
     facets: {
@@ -70,14 +73,16 @@ const configurationOptions = {
 export default function App() {
   return (
     <SearchProvider config={configurationOptions}>
-      <Header />
-      <Layout
-        bodyContent={<Results view={Games} renderResult={Game} />}
-        sideContent={<Filtering />}
-        bodyHeader={<Showing />}
-        bodyFooter={<Paging />}
-      />
-      <Footer />
+      <ModalProvider>
+        <Header />
+        <Layout
+          bodyContent={<Results view={Games} renderResult={Game} />}
+          sideContent={<Filtering />}
+          bodyHeader={<Showing />}
+          bodyFooter={<Paging />}
+        />
+        <Footer />
+      </ModalProvider>
     </SearchProvider>
   );
 }

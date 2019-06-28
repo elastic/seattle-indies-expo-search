@@ -3,13 +3,24 @@
  */
 
 .game-modal {
-  overflow: auto;
+  padding: 1em;
+  background-color: $color-dark;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+
+  @media (min-width: $mq-xsmall) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /**
+   * Media
+   */
 
   &__media {
     line-height: 0;
 
     @media (min-width: $mq-xsmall) {
-      float: left;
       width: 50%;
     }
 
@@ -92,11 +103,14 @@
     }
   }
 
+  /**
+   * Info
+   */
+
   &__copy {
     padding: 0.6em 0 0.2em;
 
     @media (min-width: $mq-xsmall) {
-      float: left;
       width: 50%;
       padding: 0 1.5em;
     }
@@ -134,4 +148,36 @@
     color: $color-light;
     background-color: $color-primary;
   }
+}
+
+/**
+ * React Modal setup
+ */
+
+.modal-overlay {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 1.5em;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+}
+
+.modal-wrapper {
+  z-index: 100;
+  max-width: 60em;
+  margin: auto;
+  overflow: visible;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+body.ReactModal__Body--open {
+  overflow: hidden; // Prevent body from scrolling while modal is open
 }

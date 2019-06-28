@@ -52,6 +52,7 @@ $color-game-overlay: darken($color-dark, 20%);
       rgba($color-game-overlay, 1) 100%
     );
     overflow: hidden;
+    cursor: pointer;
   }
 
   &__animated {
