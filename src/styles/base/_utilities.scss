@@ -22,27 +22,6 @@
   clip: rect(0 0 0 0) !important;
 }
 
-// Layout & Positioning
-.u-clearfix {
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-}
-.u-float-left {
-  float: left;
-}
-.u-float-right {
-  float: right;
-}
-.u-float-none {
-  float: none;
-}
-.u-sticky {
-  position: fixed;
-}
-
 // Text alignment
 .u-align-center {
   text-align: center;
