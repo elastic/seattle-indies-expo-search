@@ -70,19 +70,19 @@ const configurationOptions = {
   },
 };
 
-export default function App() {
-  return (
-    <SearchProvider config={configurationOptions}>
-      <ModalProvider>
-        <Header />
-        <Layout
-          bodyContent={<Results view={Games} renderResult={Game} />}
-          sideContent={<Filtering />}
-          bodyHeader={<Showing />}
-          bodyFooter={<Paging />}
-        />
-        <Footer />
-      </ModalProvider>
-    </SearchProvider>
-  );
-}
+const App = () => (
+  <SearchProvider config={configurationOptions}>
+    <ModalProvider>
+      <Header />
+      <Layout
+        bodyContent={<Results view={Games} renderResult={Game} />}
+        sideContent={<Filtering />}
+        bodyHeader={<Showing />}
+        bodyFooter={<Paging />}
+      />
+      <Footer />
+    </ModalProvider>
+  </SearchProvider>
+);
+
+export default App;
