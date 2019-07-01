@@ -4,13 +4,13 @@ import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector';
 import { SearchProvider, Results, Paging } from '@elastic/react-search-ui';
 import { Layout } from '@elastic/react-search-ui-views';
 
-import Header from '../components/Header';
-import { Games, Game } from '../components/Games';
-import { Filtering, Showing } from '../components/Searching';
-import Footer from '../components/Footer';
-import { ModalProvider } from '../components/Modal';
+import Header from './components/Header';
+import { Games, Game } from './components/Games';
+import { Filtering, Showing } from './components/Searching';
+import Footer from './components/Footer';
+import { ModalProvider } from './components/Modal';
 
-import '../styles/style.scss';
+import './styles/style.scss';
 
 const connector = new AppSearchAPIConnector({
   searchKey: 'search-iwy7kncizytudu9oc27tky7e',
@@ -70,19 +70,19 @@ const configurationOptions = {
   },
 };
 
-export default function App() {
-  return (
-    <SearchProvider config={configurationOptions}>
-      <ModalProvider>
-        <Header />
-        <Layout
-          bodyContent={<Results view={Games} renderResult={Game} />}
-          sideContent={<Filtering />}
-          bodyHeader={<Showing />}
-          bodyFooter={<Paging />}
-        />
-        <Footer />
-      </ModalProvider>
-    </SearchProvider>
-  );
-}
+const App = () => (
+  <SearchProvider config={configurationOptions}>
+    <ModalProvider>
+      <Header />
+      <Layout
+        bodyContent={<Results view={Games} renderResult={Game} />}
+        sideContent={<Filtering />}
+        bodyHeader={<Showing />}
+        bodyFooter={<Paging />}
+      />
+      <Footer />
+    </ModalProvider>
+  </SearchProvider>
+);
+
+export default App;

@@ -44,6 +44,6 @@ const ModalProvider = ({ children }) => {
   );
 };
 
-Modal.setAppElement('#___gatsby');
+Modal.setAppElement('#root');
 
 export { ModalContext, ModalProvider };

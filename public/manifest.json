@@ -1,0 +1,15 @@
+{
+  "short_name": "SIX Search",
+  "name": "Seattle Indies Expo Search",
+  "icons": [
+    {
+      "src": "favicon-96x96.png",
+      "sizes": "96x96 32x32 16x16",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ed7149",
+  "background_color": "#373841"
+}
