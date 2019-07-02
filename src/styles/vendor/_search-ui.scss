@@ -115,6 +115,7 @@
   color: $color-primary;
   text-transform: uppercase;
 }
+
 .sui-multi-checkbox-facet__option-label {
   display: flex;
   align-items: center;
@@ -125,9 +126,6 @@
 }
 .sui-multi-checkbox-facet__option-input-wrapper {
   flex: 1 1 auto;
-  margin-right: 0.5em;
-}
-.sui-multi-checkbox-facet__checkbox {
   margin-right: 0.5em;
 }
 .sui-multi-checkbox-facet__option-count {
@@ -148,6 +146,66 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+/**
+ * Custom filter checkboxes
+ */
+
+.sui-multi-checkbox-facet__checkbox {
+  position: absolute;
+  left: -9999px;
+
+  & + span {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 0.9em;
+      height: 0.9em;
+      margin-top: 2px;
+      margin-right: 0.5em;
+      background-color: $color-dark;
+      border: $border-width-thin solid $color-light;
+      transition: border-color 0.2s ease-out;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0.15em;
+      top: 50%;
+      margin-top: -0.15em;
+      width: 0.6em;
+      height: 0.3em;
+      background-color: transparent;
+      border-left: $border-width-thin solid $color-light;
+      border-bottom: $border-width-thin solid $color-light;
+      transform: translateY(0) rotate(-90deg) scale(0);
+      transition: transform 0.2s ease-in;
+    }
+  }
+
+  &:focus + span::before,
+  .sui-multi-checkbox-facet__option-label:hover & + span::before {
+    border-color: $color-primary;
+  }
+
+  &:checked + span {
+    &::before {
+      content: '';
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+
+    &::after {
+      transform: translateY(-0.05em) rotate(-45deg) scale(1);
+    }
   }
 }
 
