@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/seattle-indies-expo-search/precache-manifest.c3119cdbb03c6c3ab02d1983e20261ae.js"
+  "/seattle-indies-expo-search/precache-manifest.ea477ea5024d410b570eb7d8cccc29e5.js"
 );
 
 self.addEventListener('message', (event) => {
