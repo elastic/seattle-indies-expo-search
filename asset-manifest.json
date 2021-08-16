@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/seattle-indies-expo-search/static/css/main.44b07241.chunk.css",
-    "main.js": "/seattle-indies-expo-search/static/js/main.3bb93841.chunk.js",
-    "main.js.map": "/seattle-indies-expo-search/static/js/main.3bb93841.chunk.js.map",
+    "main.css": "/seattle-indies-expo-search/static/css/main.841b98ca.chunk.css",
+    "main.js": "/seattle-indies-expo-search/static/js/main.e3988eaa.chunk.js",
+    "main.js.map": "/seattle-indies-expo-search/static/js/main.e3988eaa.chunk.js.map",
     "runtime~main.js": "/seattle-indies-expo-search/static/js/runtime~main.42cdece9.js",
     "runtime~main.js.map": "/seattle-indies-expo-search/static/js/runtime~main.42cdece9.js.map",
-    "static/js/2.ad87d1cc.chunk.js": "/seattle-indies-expo-search/static/js/2.ad87d1cc.chunk.js",
-    "static/js/2.ad87d1cc.chunk.js.map": "/seattle-indies-expo-search/static/js/2.ad87d1cc.chunk.js.map",
+    "static/js/2.85998ab8.chunk.js": "/seattle-indies-expo-search/static/js/2.85998ab8.chunk.js",
+    "static/js/2.85998ab8.chunk.js.map": "/seattle-indies-expo-search/static/js/2.85998ab8.chunk.js.map",
     "index.html": "/seattle-indies-expo-search/index.html",
-    "precache-manifest.ea477ea5024d410b570eb7d8cccc29e5.js": "/seattle-indies-expo-search/precache-manifest.ea477ea5024d410b570eb7d8cccc29e5.js",
+    "precache-manifest.184a49998fc45ed318040565dfb8c24e.js": "/seattle-indies-expo-search/precache-manifest.184a49998fc45ed318040565dfb8c24e.js",
     "service-worker.js": "/seattle-indies-expo-search/service-worker.js",
-    "static/css/main.44b07241.chunk.css.map": "/seattle-indies-expo-search/static/css/main.44b07241.chunk.css.map"
+    "static/css/main.841b98ca.chunk.css.map": "/seattle-indies-expo-search/static/css/main.841b98ca.chunk.css.map"
   }
 }
