@@ -13,9 +13,9 @@ import { ModalProvider } from './components/Modal';
 import './styles/style.scss';
 
 const connector = new AppSearchAPIConnector({
-  searchKey: 'search-iwy7kncizytudu9oc27tky7e',
-  engineName: 'indie-games',
-  hostIdentifier: 'host-9sbnnz',
+  searchKey: 'search-jya52b2wxev1crdv36pwxmxt',
+  engineName: 'search-ui-indie-games-demo',
+  hostIdentifier: 'host-2376rb',
 });
 
 const configurationOptions = {
